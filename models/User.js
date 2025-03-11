@@ -1,9 +1,10 @@
-import { Schema, model, Types } from "mongoose"
+import { Types } from "mongoose"
+import mongoose from "mongoose"
 
-const UserModel = new Schema({
+const UserModel = new mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 	todos: [{ type: Types.ObjectId, ref: "Todo" }],
 })
 
-module.exports = model("User", UserModel)
+export default mongoose.model("User", UserModel)
