@@ -9,6 +9,8 @@ const PORT = 5000
 app.use(express.json({ extended: true }))
 app.use("/api/auth", router)
 app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 async function start(req, res) {
 	try {
